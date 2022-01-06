@@ -1,0 +1,31 @@
+<%- include ('./partials/header.ejs') %>
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+
+    <div class="container">
+
+        <div class="card" id="form-link">
+            <div class="card-header">
+                <h3>Salvar Link</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="POST" action="/savelink">
+                    <label>Título:</label>
+                    <input type="text" placeholder='Título' class='form-control' name='title'>
+                    <br><label>Link:</label>
+                    <input type="url" placeholder='Link do video' class='form-control' name='url'>
+                    <br>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name='ipc'>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Importante</label>
+                    </div>
+                    <br>
+                    <button class="btn btn-dark">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include ('./partials/footer.ejs') %>

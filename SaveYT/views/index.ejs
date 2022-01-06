@@ -1,0 +1,40 @@
+<%- include ('./partials/header.ejs') %>
+
+<body>
+    
+    <%- include ('./partials/navbar.ejs') %>
+
+    <div class="container">
+        <hr>
+        <h1>Links</h1>
+        <hr>
+        <a href="/salvarlink" class='btn btn-dark'>Salvar novo link</a>
+        <hr>
+        <% dados.forEach(dado =>{ %>
+            <br>
+            <div class="card">
+
+                <div class="card-body">
+                    <h3><%=dado.titulo%></h3>
+                    <% if(dado.ipc === 1){ %>
+                        <span class="badge badge-danger">Importante</span>
+                    <%} %>
+                </div>
+
+    
+                <div class="card-footer">
+                    <a target = "_blank":  href= <%=dado.link%> class='btn btn-dark'> Acessar</a> 
+                    <form method="POST" action="/link/delete" style='display:inline'> 
+                        <input type="hidden"  name='id' value="<%= dado.id %>">
+                        <button class="btn btn-danger">Deletar</button>
+                    </form>
+                </div>
+
+            </div>
+        <% })%>
+
+    </div>
+</body>
+
+<%- include ('./partials/footer.ejs') %>
+
